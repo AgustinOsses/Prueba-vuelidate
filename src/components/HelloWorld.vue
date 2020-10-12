@@ -1,8 +1,8 @@
 <template>
   
   <div class="container">
-    <h1>Formulario</h1>
     <form class="form-component" action>
+    <h1>Formulario</h1>
       <div>
         <input v-model="name" class="input" type="text" placeholder="Nombre" @change=" $v.name.$touch()">
         <span class="error" v-if="$v.name.$error">Este campo es requerido</span>
@@ -15,12 +15,12 @@
       
       <div>
         <input v-model="email" class="input" type="text" placeholder="Email"  @change=" $v.email.$touch()">  
-        <span class="error" v-if="$v.email.$error">Este campo es requerido</span>
+        <span class="error" v-if="$v.email.$error">Email invalido</span>
       </div>
       <div>
        <div class="button-container">
           <button @click.prevent="submit" class="button" type="button"> Submit</button>
-          <button @click.prevent="$v.$reset()" class="button" type="button"> Reset</button>
+          <button @click.prevent="$v.$reset()" class="button" type="button" style="background-color:#F60055"> Reset</button>
       </div> 
         <!-- <pre>{{$v.$invalid}}</pre> -->
       </div>  
@@ -71,56 +71,62 @@ export default {
 
 .container{
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
+  justify-content: center;
   width: 100%;
   height: 100vh;
-  background-color: #14A388;
-
+  background-color: #181C34;
   }
 
 .form-component{
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color:#F03541;
-  border-radius: 10px;
+  width: 80vh;
+  height: 100%;
+  background-color:#F0F1E4;
 }
 
 
 
 
-  .input{
-    display: flex;
-    flex-direction: column;
-    width: 500px;
-    height: 40px;
-    margin: 1rem;
-    border: 0px solid;
-  }
+.input{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 40px;
+  margin: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding-left: 15px;
+}
+ 
+
+
 .button-container{
   display: flex;
   flex-direction: column;
 }
 
 
-  .button{
-    width: 500px;
-    height: 40px;
-    margin: 1rem;
-    background-color:#14A388;
-    border: 0px solid;
-    
-  }
+.button{
+  width: 500px;
+  height: 40px;
+  margin: 1rem;
+  background-color:#181C34;
+  color: white;
+  border: none;
+  border-radius: 5px;  
+}
 
-  .button:hover{
-    background-color:#197029;
-  }
+.button:hover{
+  background-color:#09101d;
+}
 
 
-  .error{
-    color: white;
-  }
+.error{
+  color: #F60055;
+}
 
 </style>
